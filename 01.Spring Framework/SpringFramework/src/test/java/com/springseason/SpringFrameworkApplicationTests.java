@@ -1,4 +1,4 @@
-package com.springseason.SpringFramework;
+package com.springseason;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
