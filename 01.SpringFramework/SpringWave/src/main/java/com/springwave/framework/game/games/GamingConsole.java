@@ -1,4 +1,4 @@
-package com.sprinwave.framework.game.games;
+package com.springwave.framework.game.games;
 
 public interface GamingConsole {
     void up();

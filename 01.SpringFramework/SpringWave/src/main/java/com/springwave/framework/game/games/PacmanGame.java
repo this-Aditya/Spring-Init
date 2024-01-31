@@ -1,5 +1,10 @@
-package com.sprinwave.framework.game.games;
+package com.springwave.framework.game.games;
 
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
 public class PacmanGame implements GamingConsole{
 
     public void up() {

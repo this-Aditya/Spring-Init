@@ -1,9 +1,13 @@
-package com.sprinwave.framework.game.games;
+package com.springwave.framework.game.games;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class GameRunner {
 
     GamingConsole game;
-    public GameRunner(GamingConsole game) {
+    public GameRunner(@Qualifier("Car Game") GamingConsole game) {
     this.game = game;
     }
 

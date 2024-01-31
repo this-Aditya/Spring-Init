@@ -1,14 +1,24 @@
-package com.sprinwave.framework.game;
+package com.springwave.framework.game;
 
-import com.springseason.game.games.*;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Bean;
+import com.springwave.framework.game.games.GameRunner;
+import com.springwave.framework.game.games.GamingConsole;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 
 @Configuration
-public class GamingConfig {
+@ComponentScan("com.sprinwave.framework.game.games")
+public class GamingAppSpringLauncher {
+    public static void main(String[] args) {
+        try (var context = new AnnotationConfigApplicationContext(GamingAppSpringLauncher.class)) {
+            var pacmanGame = context.getBean(GamingConsole.class);
+            var gameRunner = context.getBean(GameRunner.class);
+            pacmanGame.right();
+            gameRunner.run();
+        }
+    }
 
+    /* Skipping bean creation for now!!
     @Bean("Car Game")
     @Primary
     GamingConsole carGame() {
@@ -41,4 +51,5 @@ public class GamingConfig {
     GameRunner personWalkGameRunner(GamingConsole personWalkGame) {
         return new GameRunner(personWalkGame);
     }
+*/
 }
