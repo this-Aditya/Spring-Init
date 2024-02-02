@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan("com.sprinwave.framework.game.games")
+@ComponentScan("com.springwave.framework.game.games")
 public class GamingAppSpringLauncher {
     public static void main(String[] args) {
         try (var context = new AnnotationConfigApplicationContext(GamingAppSpringLauncher.class)) {

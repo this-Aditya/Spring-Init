@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class GameRunner {
 
     GamingConsole game;
-    public GameRunner(@Qualifier("Car Game") GamingConsole game) {
+    public GameRunner(@Qualifier("carGame") GamingConsole game) {
     this.game = game;
     }
 
