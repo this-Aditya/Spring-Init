@@ -1,14 +1,13 @@
 package com.springwave.framework.algorithms;
 
 import com.springwave.framework.algorithms.qualifierTesting.FirstQualifierExp;
+import com.springwave.framework.algorithms.usecases.BubbleSortUseCase;
 import com.springwave.framework.algorithms.usecases.QuickSortUseCase;
 import com.springwave.framework.algorithms.usecases.RadixSortUseCase;
 import com.springwave.framework.algorithms.usecases.UseCase;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-
-import java.lang.reflect.Field;
 
 @Configuration
 @ComponentScan("com.springwave.framework.algorithms")
@@ -21,7 +20,10 @@ public class AlgorithmAppContext {
             System.out.println("QuickSortUseCase -> "+ quickSortAlgo.getClass().getSimpleName());
 
             RadixSortUseCase radixSortUseCase = (RadixSortUseCase) context.getBean("radixSortUseCase");
-            System.out.println("RadixSortUsecase "+ radixSortUseCase.radixSortAlgo.getClass().getSimpleName());
+            System.out.println("RadixSortUseCase ->"+ radixSortUseCase.radixSortAlgo.getClass().getSimpleName());
+
+            BubbleSortUseCase bubbleSortUseCase = (BubbleSortUseCase) context.getBean("bubbleSortUseCase");
+            System.out.println("BubbleSortUsecase ->"+ bubbleSortUseCase.bubbleSortAlgo.getClass().getSimpleName());
 
 //            Arrays.stream(context.getBeanDefinitionNames()).forEach(System.out::println);
 
