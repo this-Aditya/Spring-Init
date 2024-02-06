@@ -1,0 +1,19 @@
+insert into garage (id, company, name) values
+(
+1, 'Royal Enfield', 'Classic 350-Chrome Bronze'
+);
+
+insert into garage (id, company, name) values
+(
+2, 'Land Rover', 'Range Rover-Velar'
+);
+
+insert into garage (id, company, name) values
+(
+3, 'BMW', '760-LI'
+);
+
+insert into garage (id, company, name) values
+(
+4, 'Mercedes', 'Maybach gls 600'
+);
