@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/*
 @Component
 public class GarageCommandLineRunner implements CommandLineRunner {
 
@@ -13,11 +14,11 @@ public class GarageCommandLineRunner implements CommandLineRunner {
     private GarageJdbcRepository repository;
     @Override
     public void run(String... args) throws Exception {
-        /* JDBC ->
+        //JDBC ->
         repository.insertHardCoded();
         jdbcInsertUsingParams();
         jdbcDeleteUsingParams();
-        jdbcFindVehicleById(); */
+        jdbcFindVehicleById();
 
     }
 
@@ -38,3 +39,4 @@ public class GarageCommandLineRunner implements CommandLineRunner {
         repository.insertUsingParams(new GarageToInsert(4, "Mercedes", "Maybach gls 600"));
     }
 }
+*/
