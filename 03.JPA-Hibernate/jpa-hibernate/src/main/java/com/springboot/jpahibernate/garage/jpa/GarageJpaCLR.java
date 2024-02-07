@@ -13,9 +13,9 @@ public class GarageJpaCLR implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
-        insertJpaGarageGarageItems();
-        deleteGarageItems();
-        queryGarageItems();
+//        insertJpaGarageGarageItems();
+//        deleteGarageItems();
+//        queryGarageItems();
     }
 
     private void queryGarageItems() {
