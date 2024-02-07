@@ -13,8 +13,19 @@ public class GadgetCLR implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         addGadgets();
-        deleteIphone();
-        queryAllGadgets();
+//        deleteIphone();
+//        queryAllGadgets();
+//        queryAll();
+        queryByCompany();
+        queryByName();
+    }
+
+    private void queryByName() {
+        System.out.println(repo.findByName("Z Flip 5"));
+    }
+
+    private void queryByCompany() {
+        System.out.println(repo.findByCompany("Apple"));
     }
 
     public void addGadgets() {
@@ -37,6 +48,11 @@ public class GadgetCLR implements CommandLineRunner {
         repo.save(zFlip);
         repo.save(macbook);
         repo.save(iphone);
+    }
+
+    public void queryAll() {
+        System.out.println(repo.findAll());
+        System.out.println("Count: "+ repo.count());
     }
 
     public void deleteIphone() {
