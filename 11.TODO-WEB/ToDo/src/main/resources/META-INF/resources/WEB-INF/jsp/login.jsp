@@ -3,11 +3,10 @@
 <body>
 Welcome to Login Page:
 <br>
-<br>
+<pre>${errorMessage}<pre>
 <form method="POST">
-     Username: <input type="text" name="username">
-    <br>
-    Password: <input type="password" name="password">
+    Username: <input type="text" name="username" required>
+    Password: <input type="password" name="password" required>
     <br>
     <input type="submit">
 </form>
