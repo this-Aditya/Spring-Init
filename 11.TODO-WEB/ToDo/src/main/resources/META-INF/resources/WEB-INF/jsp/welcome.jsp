@@ -1,6 +1,10 @@
 <html>
-<head><title>Welcome:TODO</title></head>
+<head><title>Welcome</title></head>
 <body>
-<h2 align="center">Welcome to the TODO Application, ${naam}</h2>
+<div class="container">
+<h1>Welcome ${naam}</h1>
+<hr>
+Manage your todos <a href="todos">here
+</div>
 </body>
 </html>

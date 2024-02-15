@@ -3,7 +3,6 @@ package com.todo.spring.homepage;
 import com.todo.spring.service.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
@@ -31,8 +30,8 @@ public class TodoController {
 
     // Doing the work we did via RedirectAttrivute with the SessionAttributes
     @RequestMapping("todos")
-    public String todos(@ModelAttribute("naam") String name, ModelMap modelMap) {
-        modelMap.put("user", name);
-        return "home";
+    public String todos(ModelMap modelMap) {
+        modelMap.put("todos", todoService.getTodos());
+        return "todos";
     }
 }

@@ -32,9 +32,9 @@ public class LoginController {
         if (isAuthenticated) {
 //            redirectAttributes.addFlashAttribute("name", name.toUpperCase());
             model.put("naam", name);
-            return "redirect:todos";
+            return "redirect:welcome";
         }
-        model.put("errorMessage", "Invalid Credentials! Please try again!!");
+        model.put("errorMessage", "Invalid Credentials, Please try again!!");
         return "login";
     }
 }

@@ -1,14 +1,16 @@
 <html>
 <head><title>Login:TODO</title></head>
 <body>
-Welcome to Login Page:
+<div class="container">
+<h1>Welcome to Login Page</h1>
 <br>
-<pre>${errorMessage}<pre>
+<pre style="font-size:20px">${errorMessage}</pre>
 <form method="POST">
-    Username: <input type="text" name="username">
+    Username: <input type="text" name="username" required>
     Password: <input type="password" name="password" required>
     <br>
     <input type="submit">
 </form>
+</div>
 </body>
 </html>
