@@ -1,14 +1,15 @@
 package com.todo.spring.login;
 
-import com.todo.spring.login.auth.AuthenticationService;
+import com.todo.spring.service.auth.AuthenticationService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("naam")
 public class LoginController {
     AuthenticationService authService;
 
@@ -23,12 +24,15 @@ public class LoginController {
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public String loginPost(@RequestParam(name = "username") String name,
-                            @RequestParam("password") String secret,
-                            RedirectAttributes redirectAttributes, ModelMap model) {
+                            @RequestParam("password") String secret, ModelMap model
+//                            RedirectAttributes redirectAttributes// we doesn't want
+//                            the redirect scope for this variable, we need session
+    ) {
         boolean isAuthenticated = authService.authenticate(name, secret);
         if (isAuthenticated) {
-            redirectAttributes.addFlashAttribute("name", name);
-            return "redirect:welcome";
+//            redirectAttributes.addFlashAttribute("name", name.toUpperCase());
+            model.put("naam", name);
+            return "redirect:todos";
         }
         model.put("errorMessage", "Invalid Credentials! Please try again!!");
         return "login";

@@ -1,10 +1,10 @@
-package com.todo.spring.home;
+package com.todo.spring.homepage;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HomePageController {
+public class LandingPageController {
 
     @RequestMapping
     public String homePage() {

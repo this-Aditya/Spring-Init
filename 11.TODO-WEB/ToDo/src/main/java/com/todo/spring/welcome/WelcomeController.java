@@ -8,6 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class WelcomeController {
 
+    /*
+    This won't work if request is refreshed, it would not be coming from redirection after the refresh!
+    It is only comping from redirection just after login is succeed, after refreshing. 'name' will noy
+    be available...
+     */
     @RequestMapping("welcome")
     public String welcomePage(@ModelAttribute("name") String name, ModelMap model) {
         model.put("naam", name);

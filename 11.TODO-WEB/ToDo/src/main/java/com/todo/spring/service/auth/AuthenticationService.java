@@ -1,4 +1,4 @@
-package com.todo.spring.login.auth;
+package com.todo.spring.service.auth;
 
 import org.springframework.stereotype.Service;
 

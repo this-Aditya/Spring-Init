@@ -5,7 +5,7 @@ Welcome to Login Page:
 <br>
 <pre>${errorMessage}<pre>
 <form method="POST">
-    Username: <input type="text" name="username" required>
+    Username: <input type="text" name="username">
     Password: <input type="password" name="password" required>
     <br>
     <input type="submit">
