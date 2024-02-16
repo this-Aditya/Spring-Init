@@ -10,12 +10,13 @@ import java.util.stream.Collectors;
 @Service
 public class TodoService {
     static Set<Todo> todos;
+    static int id = 0 ;
 
     static {
         todos = new LinkedHashSet<>();
-        todos.add(new Todo(1, "abhay", "Buy S24 Ultra", LocalDate.now(), true));
-        todos.add(new Todo(2, "aditi", "Become Doctor", LocalDate.now().plusYears(3), false));
-        todos.add(new Todo(3, "aditya", "Become Software Developer", LocalDate.now().plusMonths(6), false));
+        todos.add(new Todo(++id, "abhay", "Buy S24 Ultra", LocalDate.now(), true));
+        todos.add(new Todo(++id, "aditi", "Become Doctor", LocalDate.now().plusYears(3), false));
+        todos.add(new Todo(++id, "aditya", "Become Software Developer", LocalDate.now().plusMonths(6), false));
     }
 
     public Set<Todo> getTodos() {
@@ -28,6 +29,9 @@ public class TodoService {
                 .collect(Collectors.toSet());
     }
 
+    public void addNewTodo(String username, String description, LocalDate targetDate, boolean isCompleted) {
+        todos.add(new Todo(++id, username, description, targetDate, isCompleted));
+    }
 }
 
 

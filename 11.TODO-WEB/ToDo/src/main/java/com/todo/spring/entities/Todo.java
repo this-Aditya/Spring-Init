@@ -1,5 +1,7 @@
 package com.todo.spring.entities;
 
+import jakarta.validation.constraints.Size;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -7,6 +9,8 @@ public class Todo {
 
     int id;
     String username;
+
+    @Size(min = 10, message = "Description size should atleast be 10")
     String taskDescription;
     LocalDate targetDate;
     boolean done;

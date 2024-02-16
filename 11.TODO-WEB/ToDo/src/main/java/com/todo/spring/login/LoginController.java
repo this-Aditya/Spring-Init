@@ -26,7 +26,8 @@ public class LoginController {
     public String loginPost(@RequestParam(name = "username") String name,
                             @RequestParam("password") String secret, ModelMap model
 //                            RedirectAttributes redirectAttributes// we doesn't want
-//                            the redirect scope for this variable, we need session
+//                            the redirect scope for this variable(as it is till request only scope),
+//                            we need session level scope.
     ) {
         boolean isAuthenticated = authService.authenticate(name, secret);
         if (isAuthenticated) {

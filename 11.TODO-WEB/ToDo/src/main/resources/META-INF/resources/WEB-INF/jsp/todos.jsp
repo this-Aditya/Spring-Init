@@ -31,8 +31,9 @@
 </c:forEach>
 </tbody>
 </table>
+<a href="add-todo" class = "btn btn-success">Add Todo</a>
+</div>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</div>
 </body>
 </html>

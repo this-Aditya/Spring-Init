@@ -1,9 +1,10 @@
-package com.todo.spring.homepage;
+package com.todo.spring.todo_page;
 
 import com.todo.spring.service.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -29,8 +30,9 @@ public class TodoController {
      */
 
     // Doing the work we did via RedirectAttrivute with the SessionAttributes
-    @RequestMapping("todos")
+    @RequestMapping(value = "todos", method = RequestMethod.GET)
     public String todos(ModelMap modelMap) {
+//        System.out.println("Todos: name -> "+modelMap.get("naam"));
         modelMap.put("todos", todoService.getTodos());
         return "todos";
     }
