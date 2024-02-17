@@ -68,12 +68,12 @@ public class Todo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Todo todo = (Todo) o;
-        return id == todo.id && done == todo.done && Objects.equals(username, todo.username) && Objects.equals(taskDescription, todo.taskDescription) && Objects.equals(targetDate, todo.targetDate);
+        return done == todo.done && Objects.equals(username, todo.username) && Objects.equals(taskDescription, todo.taskDescription);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, taskDescription, targetDate, done);
+        return Objects.hash(username, targetDate, done);
     }
 
     @Override

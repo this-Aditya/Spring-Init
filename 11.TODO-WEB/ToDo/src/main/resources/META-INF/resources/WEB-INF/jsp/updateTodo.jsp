@@ -2,17 +2,16 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html>
-  	<head>
+	<head>
   		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
         <link href="webjars/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet" >
-  		<title>Add Todo</title>
+  		<title>Update Todo</title>
   	</head>
 <body>
 <div class="container">
 <h1 align="center">Hi ${naam}, Add new Todo...</h1>
 <hr>
-<form:form method = "post" modelAttribute = "newTodo">
-
+<form:form method = "post" modelAttribute = "updateTodo">
 <fieldset class = "mb-3">
 <form:label path = "username">UserName</form:label>
 <form:input path = "username" type = "text" required = "required"/>

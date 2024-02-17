@@ -1,8 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<head><title>Welcome:TODO</title></head>
+  	<head>
+  		<link href="webjars/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" >
+  		<title>List Todos Page</title>
+  	</head>
 <body>
 <div class="container">
 <h1 align="center">Hi ${naam}!!</h1>
@@ -27,13 +29,15 @@
 <td>${todo.taskDescription}</td>
 <td>${todo.targetDate}</td>
 <td>${todo.done}</td>
+<td><a href = "delete-todo?id=${todo.id}" class = "btn btn-warning">Delete</a></td>
+<td><a href = "update-todo?id=${todo.id}" class = "btn btn-success">Update</a></td>
 </tr>
 </c:forEach>
 </tbody>
 </table>
 <a href="add-todo" class = "btn btn-success">Add Todo</a>
 </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="webjars/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+ <script src="webjars/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
