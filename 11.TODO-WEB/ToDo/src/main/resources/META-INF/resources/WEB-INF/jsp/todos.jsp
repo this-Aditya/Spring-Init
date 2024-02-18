@@ -4,7 +4,6 @@
 <table class="table">
 <thead>
 <tr>
-<th>Id</th>
 <th>Username</th>
 <th>Task</th>
 <th>TargetDate</th>
@@ -14,7 +13,6 @@
 <tbody>
 <c:forEach items = "${todos}" var = "todo">
 <tr>
-<td>${todo.id}</td>
 <td>${todo.username}</td>
 <td>${todo.taskDescription}</td>
 <td>${todo.targetDate}</td>

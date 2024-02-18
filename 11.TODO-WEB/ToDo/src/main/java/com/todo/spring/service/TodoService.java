@@ -18,8 +18,10 @@ public class TodoService {
     static {
         todos = new LinkedHashSet<>();
         todos.add(new Todo(++id, "abhay", "Buy S24 Ultra", LocalDate.now(), true));
+        todos.add(new Todo(++id, "abhay", "Become CA", LocalDate.now(), true));
         todos.add(new Todo(++id, "aditi", "Become Doctor", LocalDate.now().plusYears(3), false));
         todos.add(new Todo(++id, "aditya", "Become Software Developer", LocalDate.now().plusMonths(6), false));
+        todos.add(new Todo(++id, "aditya", "Get RE Chrome Bronze", LocalDate.now().plusMonths(6), false));
     }
 
     public List<Todo> getTodos() {
@@ -28,7 +30,7 @@ public class TodoService {
 
     public Set<Todo> getTodosByName(String username) {
         return todos.stream()
-                .filter(todo -> todo.getUsername().equals(username))
+                .filter(todo -> todo.getUsername().equalsIgnoreCase(username))
                 .collect(Collectors.toSet());
     }
 

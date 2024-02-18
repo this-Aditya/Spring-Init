@@ -1,5 +1,6 @@
 package com.todo.spring.welcome;
 
+import com.todo.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class WelcomeController {
 
     @RequestMapping("welcome")
     public String welcome(ModelMap modelMap) {
-        modelMap.put("naam", "Aditya");
+        modelMap.put("naam", Utils.getLoggedInUsername());
         return "welcome";
     }
 }
