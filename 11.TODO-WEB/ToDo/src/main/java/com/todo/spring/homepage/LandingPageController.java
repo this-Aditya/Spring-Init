@@ -8,6 +8,6 @@ public class LandingPageController {
 
     @RequestMapping
     public String homePage() {
-        return "redirect:login";
+        return "redirect:welcome";
     }
 }

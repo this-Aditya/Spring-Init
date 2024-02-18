@@ -24,8 +24,9 @@ public class NewTodoController {
     public String addTodo(ModelMap modelMap) {
         String username = (String) modelMap.get("naam");
         Todo todo = new Todo(0, username, "..", LocalDate.now().plusYears(1), false);
-        int newId = TodoService.id;
-        todo.setId(++newId);
+//        TodoService.id++;
+        int newId = ++TodoService.id;
+        todo.setId(newId);
         modelMap.put("newTodo", todo); // same name newTodo should be used in forms too!!
         return "addTodo";
     }
@@ -37,7 +38,6 @@ public class NewTodoController {
         if (bindingResult.hasErrors()) {
             return "addTodo";
         }
-        String username = (String) modelMap.get("naam");
         todoService.addNewTodo(newTodo);
         return "redirect:todos";
     }

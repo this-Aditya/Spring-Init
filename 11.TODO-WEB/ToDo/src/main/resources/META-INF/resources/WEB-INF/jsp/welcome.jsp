@@ -1,6 +1,4 @@
-<html>
-<head><title>Welcome</title></head>
-<body>
+<%@ include file = "common/header.jspf"%>
 <div class="container">
 <h1>Welcome ${naam}</h1>
 <hr>

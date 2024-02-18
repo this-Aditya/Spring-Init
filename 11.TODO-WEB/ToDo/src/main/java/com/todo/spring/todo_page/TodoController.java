@@ -35,7 +35,6 @@ public class TodoController {
 //        System.out.println("Todos: name -> "+modelMap.get("naam"));
         modelMap.put("todos", todoService.getTodos());
         System.out.println("Querying Todos:");
-        System.out.println(todoService.getTodos());
         return "todos";
     }
 }

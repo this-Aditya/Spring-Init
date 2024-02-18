@@ -14,7 +14,6 @@ public class DeleteTodoController {
         this.todoService = service;
     }
 
-
     @RequestMapping(value = "delete-todo")
     public String deleteTodoForId(@RequestParam("id") int todoId) {
         todoService.deleteTodo(todoId);

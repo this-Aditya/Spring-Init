@@ -21,7 +21,8 @@ public class WelcomeController {
      */
 
     @RequestMapping("welcome")
-    public String welcome() {
+    public String welcome(ModelMap modelMap) {
+        modelMap.put("naam", "Aditya");
         return "welcome";
     }
 }
