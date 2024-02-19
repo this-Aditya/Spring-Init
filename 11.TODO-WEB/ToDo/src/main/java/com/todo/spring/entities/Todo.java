@@ -1,16 +1,21 @@
 package com.todo.spring.entities;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
+@Entity
 public class Todo {
 
+    @Id
+    @GeneratedValue
     int id;
     String username;
 
     @Size(min = 10, message = "Description size should atleast be 10")
+    @Column(name = "description")
     String taskDescription;
     LocalDate targetDate;
     boolean done;
@@ -21,6 +26,10 @@ public class Todo {
         this.taskDescription = taskDescription;
         this.targetDate = targetDate;
         this.done = done;
+    }
+
+    public Todo() {
+        // Default constructor for JPA
     }
 
     public int getId() {

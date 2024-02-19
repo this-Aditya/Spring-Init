@@ -1,5 +1,6 @@
 package com.todo.spring.todo_page;
 
+import com.todo.spring.service.TodoRepository;
 import com.todo.spring.service.TodoService;
 import com.todo.spring.utils.Utils;
 import org.springframework.stereotype.Controller;
@@ -12,10 +13,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("naam")
 public class TodoController {
 
-    TodoService todoService;
+//    TodoService todoService;
+    TodoRepository repository;
 
-    public TodoController(TodoService todoService) {
-        this.todoService = todoService;
+    public TodoController(
+//            TodoService todoService
+    TodoRepository repository
+    ) {
+        this.repository = repository;
+//        this.todoService = todoService;
     }
 
     /*
@@ -34,7 +40,8 @@ public class TodoController {
     @RequestMapping(value = "todos", method = RequestMethod.GET)
     public String todos(ModelMap modelMap) {
 //        System.out.println("Todos: name -> "+modelMap.get("naam"));
-        modelMap.put("todos", todoService.getTodosByName(Utils.getLoggedInUsername()));
+//        modelMap.put("todos", todoService.getTodosByName(Utils.getLoggedInUsername()));
+        modelMap.put("todos", repository.findByUsername(Utils.getLoggedInUsername()));
         System.out.println("Querying Todos:");
         return "todos";
     }

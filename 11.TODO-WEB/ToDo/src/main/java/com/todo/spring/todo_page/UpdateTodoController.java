@@ -1,6 +1,7 @@
 package com.todo.spring.todo_page;
 
 import com.todo.spring.entities.Todo;
+import com.todo.spring.service.TodoRepository;
 import com.todo.spring.service.TodoService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -14,16 +15,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class UpdateTodoController {
 
-    TodoService todoService;
+//    TodoService todoService;
+//
+//    public UpdateTodoController(TodoService todoService) {
+//        this.todoService = todoService;
+//    }
 
-    public UpdateTodoController(TodoService todoService) {
-        this.todoService = todoService;
+
+    TodoRepository repository;
+
+    public UpdateTodoController(TodoRepository repository) {
+        this.repository = repository;
     }
 
     // For the sake of not complicating it, resuing the add-todo page again
     @RequestMapping(value = "update-todo", method = RequestMethod.GET)
     public String updateTodo(@RequestParam("id") int todoId, ModelMap modelMap) {
-        Todo toUpdate = todoService.getTodoById(todoId);
+//        Todo toUpdate = todoService.getTodoById(todoId);
+        Todo toUpdate = repository.findById(todoId).get();
         modelMap.put("updateTodo", toUpdate);
         return "updateTodo";
     }
@@ -34,7 +43,8 @@ public class UpdateTodoController {
             return "updateTodo";
         }
         System.out.println(todo);
-        todoService.updateTodo(todo);
+//        todoService.updateTodo(todo);
+        repository.save(todo);
         return "redirect:todos";
     }
 }

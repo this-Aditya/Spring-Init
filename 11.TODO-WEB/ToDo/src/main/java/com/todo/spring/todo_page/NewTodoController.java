@@ -1,7 +1,9 @@
 package com.todo.spring.todo_page;
 
 import com.todo.spring.entities.Todo;
+import com.todo.spring.service.TodoRepository;
 import com.todo.spring.service.TodoService;
+import com.todo.spring.utils.Utils;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -14,10 +16,15 @@ import java.time.LocalDate;
 @SessionAttributes("naam")
 public class NewTodoController {
 
-    TodoService todoService;
+//    TodoService todoService;
 
-    public NewTodoController(TodoService todoService) {
-        this.todoService = todoService;
+    TodoRepository repository;
+    public NewTodoController(
+//            TodoService todoService,
+            TodoRepository repository
+    ) {
+        this.repository = repository;
+//        this.todoService = todoService;
     }
 
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
@@ -25,8 +32,8 @@ public class NewTodoController {
         String username = (String) modelMap.get("naam");
         Todo todo = new Todo(0, username, "..", LocalDate.now().plusYears(1), false);
 //        TodoService.id++;
-        int newId = ++TodoService.id;
-        todo.setId(newId);
+//        int newId = ++TodoService.id;
+//        todo.setId(newId);
         modelMap.put("newTodo", todo); // same name newTodo should be used in forms too!!
         return "addTodo";
     }
@@ -38,7 +45,9 @@ public class NewTodoController {
         if (bindingResult.hasErrors()) {
             return "addTodo";
         }
-        todoService.addNewTodo(newTodo);
+//        todoService.addNewTodo(newTodo);
+        newTodo.setUsername(Utils.getLoggedInUsername());
+        repository.save(newTodo);
         return "redirect:todos";
     }
 }
