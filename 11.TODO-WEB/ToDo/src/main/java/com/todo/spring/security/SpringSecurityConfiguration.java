@@ -18,8 +18,9 @@ public class SpringSecurityConfiguration {
         UserDetails userDetails = getUserDetails("Aditya", "pass");
         UserDetails userDetails2 = getUserDetails("Abhay", "pass");
         UserDetails userDetails3 = getUserDetails("Aditi", "pass");
+        UserDetails userDetails4 = getUserDetails("Ujjawal", "pass");
 
-        return  new InMemoryUserDetailsManager(userDetails,userDetails2,userDetails3);
+        return  new InMemoryUserDetailsManager(userDetails,userDetails2,userDetails3, userDetails4);
     }
 
     private UserDetails getUserDetails(String username, String pwd) {

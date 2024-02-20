@@ -42,7 +42,6 @@ public class TodoController {
 //        System.out.println("Todos: name -> "+modelMap.get("naam"));
 //        modelMap.put("todos", todoService.getTodosByName(Utils.getLoggedInUsername()));
         modelMap.put("todos", repository.findByUsername(Utils.getLoggedInUsername()));
-        System.out.println("Querying Todos:");
         return "todos";
     }
 }
