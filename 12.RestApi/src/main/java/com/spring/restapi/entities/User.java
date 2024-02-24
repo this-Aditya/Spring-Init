@@ -1,5 +1,6 @@
 package com.spring.restapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
@@ -13,6 +14,7 @@ public class User {
     private String name;
 
     @Past(message = "Birth Date must be a past date")
+    @JsonProperty("dob")
     private LocalDate birthDate;
 
     public User(Builder builder) {
