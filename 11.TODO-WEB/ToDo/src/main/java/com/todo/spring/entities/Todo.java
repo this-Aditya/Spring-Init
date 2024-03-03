@@ -1,6 +1,9 @@
 package com.todo.spring.entities;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
