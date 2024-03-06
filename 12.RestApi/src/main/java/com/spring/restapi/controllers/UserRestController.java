@@ -14,7 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-public class UserRestController {
+public class UserRestController { // Analogus To UserResource
 
     private final UserDaoService dao;
 
