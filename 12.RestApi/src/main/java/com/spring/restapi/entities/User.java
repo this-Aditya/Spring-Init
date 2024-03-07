@@ -1,14 +1,22 @@
 package com.spring.restapi.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
+@Entity(name = "THEUSER")
 public class User {
 
+    @Id
+    @GeneratedValue
     private int id;
     @Size(min = 2, message = "Name should be atleast 2 characters Long")
     private String name;
@@ -16,6 +24,9 @@ public class User {
     @Past(message = "Birth Date must be a past date")
     @JsonProperty("dob")
     private LocalDate birthDate;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
 
     public User(Builder builder) {
         this.id = builder.id;
