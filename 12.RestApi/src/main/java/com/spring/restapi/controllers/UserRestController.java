@@ -14,6 +14,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
+@Deprecated
 public class UserRestController { // Analogus To UserResource
 
     private final UserDaoService dao;
@@ -29,7 +30,8 @@ public class UserRestController { // Analogus To UserResource
 
     @PostMapping("users")
     public ResponseEntity<User> addUser(@Valid @RequestBody User newUser) {
-        User addedUser = dao.addUser(newUser);
+//        User addedUser = dao.addUser(newUser);
+        User addedUser = null; // Making it of no use because userDao Service is deprecated
         if (addedUser != null) {
             URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
                     .path("{id}")

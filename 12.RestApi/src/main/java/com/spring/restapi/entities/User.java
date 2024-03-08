@@ -28,12 +28,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
-    public User(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.birthDate = builder.birthDate;
-    }
-
     public User() {
 
     }
@@ -61,32 +55,21 @@ public class User {
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
     }
+/*
+    public String getName() {
+        return name;
+    }
 
-    public static class Builder {
-        private int id;
-        private String name;
-        private LocalDate birthDate;
+    public void setName(String name) {
+        this.name = name;
+    }
+*/
+    public List<Post> getPosts() {
+        return posts;
+    }
 
-        public Builder() {}
-
-        public User.Builder setId(int id) {
-            this.id = id;
-            return this;
-        }
-
-        public User.Builder setName(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public User.Builder setBirthDate(LocalDate date) {
-            this.birthDate = date;
-            return  this;
-        }
-
-        public User build() {
-            return new User(this);
-        }
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 
     @Override

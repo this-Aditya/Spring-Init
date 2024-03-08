@@ -1,6 +1,8 @@
 package com.spring.restapi.controllers.jpa;
 
+import com.spring.restapi.entities.Post;
 import com.spring.restapi.entities.User;
+import com.spring.restapi.jpa.PostRepository;
 import com.spring.restapi.jpa.UserRepository;
 import com.spring.restapi.utils.exceptions.UserNotFoundException;
 import jakarta.validation.Valid;
@@ -18,9 +20,11 @@ import java.util.Optional;
 public class UserJpaController {
 
     private final UserRepository repository;
+    private final PostRepository postRepository;
 
-    public UserJpaController(UserRepository repository) {
+    public UserJpaController(UserRepository repository, PostRepository postRepository) {
         this.repository = repository;
+        this.postRepository = postRepository;
     }
 
     @GetMapping("/jpa/users")
@@ -60,4 +64,29 @@ public class UserJpaController {
         repository.delete(toDelete);
         // simply use delete by id directly
     }
+
+    /* Request Mappings for Posts */
+    @GetMapping("/jpa/users/{id}/posts")
+    public List<Post> getPostsOfUser(@PathVariable int id) {
+        Optional<User> optUser = repository.findById(id);
+        if (optUser.isEmpty()) {
+            throw new UserNotFoundException("No User present with id "+ id);
+        }
+        return optUser.get().getPosts();
+    }
+
+    @PostMapping("/jpa/users/{id}/posts")
+    public ResponseEntity<Post> addPost(@PathVariable int id, @Valid @RequestBody Post post) {
+        Optional<User> optUser = repository.findById(id);
+        if (optUser.isEmpty()) {
+            throw new UserNotFoundException("User not present");
+        }
+        post.setUser(optUser.get());
+        postRepository.save(post);
+        URI location = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("{id}")
+                .buildAndExpand(optUser.get().getId()).toUri();
+        return ResponseEntity.created(location).build();
+    }
+
 }
